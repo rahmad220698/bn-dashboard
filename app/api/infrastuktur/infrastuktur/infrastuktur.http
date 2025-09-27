@@ -1,0 +1,34 @@
+### Baca Data Pos Anggaran
+GET http://localhost:3001/api/infrastuktur
+
+### Buat Data 
+POST http://localhost:3001/api/infrastuktur
+Content-Type: application/json
+
+{
+  "id": 3,
+  "kodesasaran": 2,
+  "indikator": "Jalan Aspal",
+  "tahun": 2026,
+  "target": 97.5,
+  "realisasi": 98.3,
+  "createdAt": "2025-08-22T16:38:43.234Z"
+}
+
+### Update Data Pos Anggaran
+PUT http://localhost:3000/api/infrastuktur/1
+Content-Type: application/json
+
+{
+ "id": 1,
+  "kodesasaran": 1,
+  "indikator": "Jalan Aspal",
+  "tahun": 2025,
+  "target": 98.5,
+  "realisasi": 95.3,
+  "createdAt": "2025-08-22T16:38:43.234Z"
+}
+
+### Hapus Data
+DELETE http://localhost:3000/api/infrastuktur/4
+Content-Type: application/json

@@ -1,0 +1,43 @@
+### Baca Data Pos Anggaran
+GET http://localhost:3001/api/lingkunganhidup
+
+### Baca Data
+GET http://localhost:3001/api/lingkunganhidup?search=2025
+x-api-key: dashboarduser
+
+### Tambah Data
+POST http://localhost:3000/api/kualitassdm
+Content-Type: application/json
+x-api-key: dashboarduser
+
+{
+  "id_data": 1,
+  "kdiku": "01",
+  "tahun": 2025,
+  "nilai": 123.45,
+  "indikator": {
+    "kdiku": "01",
+    "nmiku": "Indikator Kemiskinan",
+    "keterangan": "Keterangan",
+    "kodesasaran": "A001"
+}
+
+
+### Update Data Pos Anggaran
+PUT http://localhost:3000/api/users/4
+Content-Type: application/json
+
+{
+     "id": 4,
+  "username": "Hanan",
+  "password": "Admin",
+  "nama": "Zhafran",
+  "email": "admiasdfdfnlagi",
+  "createdAt": "2025-08-22T16:44:34.623Z",
+  "level": 1,
+  "idgroup": 3
+}
+
+### Hapus Data Pos Kesehatan
+DELETE http://localhost:3000/api/users/4
+Content-Type: application/json

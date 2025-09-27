@@ -1,0 +1,63 @@
+### Baca Data
+GET http://localhost:3001/api/infrastuktur/4irigasikondisibaik-prev
+content-type: application/json
+x-api-key: dashtbrndfiorkddnskjfirirkfkfdkfk
+
+### Baca Data
+GET http://localhost:3001/api/infrastuktur/4irigasikondisibaik?kdirigasi=118&tahun=2026
+content-type: application/json
+x-api-key: dashtbrndfiorkddnskjfirirkfkfdkfk
+
+### Buat Data 
+POST http://localhost:3001/api/infrastuktur/4irigasikondisibaik
+Content-Type: application/json
+x-api-key: dashtbrndfiorkddnskjfirirkfkfdkfk
+
+{
+    "id": "125",
+    "kdirigasi": 118,
+    "msirigasi": "DI. Panobasan",
+    "kdkecamatan": "4",
+    "nmkecamatan": "SIPIROK",
+    "luas": "100",
+    "tahun": 2026,
+    "konirigasibaik": "20",
+    "konirigasisedang": "10",
+    "konirigasirusakringan": "20",
+    "konirigasirusakberat": "50",
+    "verif": 0,
+    "username": null,
+    "aksi": "INPUT",
+    "datecreate": "2025-09-16T02:46:06.000Z"
+}
+
+
+### Baca Data
+GET http://localhost:3001/api/infrastuktur/4irigasikondisibaik/1/2026
+Content-Type: application/json
+x-api-key: dashtbrndfiorkddnskjfirirkfkfdkfk
+
+### Update Data
+PUT http://localhost:3001/api/infrastuktur/4irigasikondisibaik/118/2026
+x-api-key: dashtbrndfiorkddnskjfirirkfkfdkfk
+
+{
+    "id": "125",
+    "kdirigasi": 118,
+    "msirigasi": "DI. Panobasan",
+    "kdkecamatan": "4",
+    "nmkecamatan": "SIPIROK",
+    "luas": "100",
+    "tahun": 2026,
+    "konirigasibaik": "20",
+    "konirigasisedang": "10",
+    "konirigasirusakringan": "20",
+    "konirigasirusakberat": "56670",
+    "verif": 0,
+    "username": null,
+    "aksi": "EDIT",
+    "datecreate": "2025-09-16T02:46:06.000Z"
+}
+### Hapus Data
+DELETE http://localhost:3001/api/infrastuktur/4irigasikondisibaik/118/2026
+x-api-key: dashtbrndfiorkddnskjfirirkfkfdkfk

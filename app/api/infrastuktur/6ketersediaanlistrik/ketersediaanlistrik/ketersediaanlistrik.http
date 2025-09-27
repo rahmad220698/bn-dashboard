@@ -1,0 +1,50 @@
+### Baca Data Ketersediaan Listrik (Semua)
+GET http://localhost:3001/api/infrastuktur/6ketersediaanlistrik
+Content-Type: application/json
+x-api-key: dashtbrndfiorkddnskjfirirkfkfdkfk
+
+###
+
+### Baca Data Ketersediaan Listrik (Berdasarkan ID)
+GET http://localhost:3001/api/infrastuktur/6ketersediaanlistrik/1
+Content-Type: application/json
+x-api-key: dashtbrndfiorkddnskjfirirkfkfdkfk
+
+###
+
+### Buat Data Ketersediaan Listrik Baru
+POST http://localhost:3001/api/infrastuktur/6ketersediaanlistrik
+Content-Type: application/json
+x-api-key: dashtbrndfiorkddnskjfirirkfkfdkfk
+
+{
+  "nmkecamatan": "AEK BILA2",
+  "tahun": 2025,
+  "dayatersedia": 722,
+  "dayadibutuhkan": 889,
+  "rasiopersen": 95.12
+}
+
+###
+
+### Update Data Ketersediaan Listrik
+PUT http://localhost:3001/api/infrastuktur/6ketersediaanlistrik/1
+Content-Type: application/json
+x-api-key: dashtbrndfiorkddnskjfirirkfkfdkfk
+
+{
+  "nmkecamatan": "AEK BILAH",
+  "tahun": 2025,
+  "dayatersedia": 850,
+  "dayadibutuhkan": 834,
+  "rasiopersen": 94.44
+}
+
+###
+
+### Hapus Data Ketersediaan Listrik
+DELETE http://localhost:3001/api/infrastuktur/6ketersediaanlistrik/18
+Content-Type: application/json
+x-api-key: dashtbrndfiorkddnskjfirirkfkfdkfk
+
+###

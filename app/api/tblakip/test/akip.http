@@ -1,0 +1,63 @@
+# ===================================
+# 🧪 API Testing: AKIP Management
+# 📌 Pastikan server berjalan: npx next dev
+# 🔄 Gunakan ekstensi "REST Client" di VS Code
+# ===================================
+
+### 🔹 1. [GET] Baca Semua Data AKIP
+GET http://localhost:3000/api/tblakip
+Accept: application/json
+
+### 🔹 2. [POST] Buat Data AKIP Baru
+POST http://localhost:3000/api/tblakip
+Content-Type: application/json
+
+{
+  "kodesasaran": 301,
+  "indikator": "Dinas Pendidikan",
+  "tahun": 2024,
+  "reformasi": "B",
+  "spi": 78.25,
+  "sakip": 60.00,
+  "createdAt": "2023-01-01T00:00:00Z"
+}
+
+### 🔹 3. [POST] Buat AKIP Lain (untuk testing)
+POST http://localhost:3000/api/tblakip
+Content-Type: application/json
+
+{
+  "kodesasaran": 305,
+  "indikator": "Dinas PP dan PA",
+  "tahun": 2024,
+  "reformasi": "B",
+  "spi": 76.00,
+  "sakip": 65.00,
+  "createdAt": "2023-01-01T00:00:00Z"
+}
+}
+
+### 🔹 4. [GET] Baca Satu AKIP Berdasarkan ID
+GET http://localhost:3000/api/tblakip/1
+Accept: application/json
+
+### 🔹 5. [PUT] Update Data AKIP
+PUT http://localhost:3000/api/tblakip/1
+Content-Type: application/json
+
+{
+  "kodesasaran": 305,
+  "indikator": "Dinas PP dan PA",
+  "tahun": 2024,
+  "reformasi": "C",
+  "spi": 76.00,
+  "sakip": 65.00,
+  "createdAt": "2023-01-01T00:00:00Z"
+}
+
+### 🔹 6. [DELETE] Hapus Data AKIP (tanpa Content-Type)
+DELETE http://localhost:3000/api/tblakip/1
+
+### 🔹 7. [GET] Cek Ulang Setelah Hapus
+GET http://localhost:3000/api/tblakip
+Accept: application/json

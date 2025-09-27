@@ -1,0 +1,4 @@
+### Baca Data Pos Pendapatan
+GET http://localhost:3001/api/bpkpad-pendapatan
+
+

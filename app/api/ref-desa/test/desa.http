@@ -1,0 +1,26 @@
+### Baca Data Pos Anggaran
+GET http://localhost:3000/api/desa
+
+### Buat Data 
+POST http://localhost:3000/api/desa
+Content-Type: application/json
+
+{
+   "kddesa": 102,
+  "nmdesa": "Sinyior nyior"
+}
+
+
+### Update Data Pos Anggaran
+PUT http://localhost:3000/api/desa/2
+Content-Type: application/json
+
+{
+  "kddesa": 101,
+  "kdkecamatan": 12345,
+  "nmkecamatan": "AngkolaBarat"
+}
+
+### Hapus Data Pos Kesehatan
+DELETE http://localhost:3000/api/desa/2
+Content-Type: application/json

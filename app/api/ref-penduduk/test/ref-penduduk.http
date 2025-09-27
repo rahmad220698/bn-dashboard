@@ -1,0 +1,61 @@
+### Baca Data Penduduk (Semua)
+GET http://localhost:3001/api/ref-penduduk
+Content-Type: application/json
+x-api-key: dashtbrndfiorkddnskjfirirkfkfdkfk
+
+###
+
+### Buat Data Penduduk Baru
+POST http://localhost:3001/api/ref-penduduk
+Content-Type: application/json
+x-api-key: dashtbrndfiorkddnskjfirirkfkfdkfk
+
+ {
+    "tahun": 2013,
+    "kdkecamatan": 0,
+    "nmkecamatan": "Angkola Sangkunur",
+    "lakiLaki": 13311,
+    "perempuan": 13396,
+    "total": 26708,
+    "jumlahkk": 6250,
+    "pop04tahun": 1850,
+    "pop59tahun": 2150,
+    "pop1014tahun": 1650,
+    "pop1519tahun": 980
+  }
+###
+
+### Baca Data Penduduk Berdasarkan ID
+GET http://localhost:3001/api/ref-penduduk/2
+Content-Type: application/json
+x-api-key: dashtbrndfiorkddnskjfirirkfkfdkfk
+
+###
+
+### Update Data Penduduk
+PUT http://localhost:3001/api/ref-penduduk/1
+Content-Type: application/json
+x-api-key: dashtbrndfiorkddnskjfirirkfkfdkfk
+
+{
+    "tahun": 2013,
+    "kdkecamatan": 3,
+    "nmkecamatan": "Angkola Barat",
+    "lakiLaki": 13311,
+    "perempuan": 13396,
+    "total": 26708,
+    "jumlahkk": 6250,
+    "pop04tahun": 1850,
+    "pop59tahun": 2150,
+    "pop1014tahun": 1650,
+    "pop1519tahun": 980
+  }
+
+###
+
+### Hapus Data Penduduk
+DELETE http://localhost:3001/api/ref-penduduk/1
+Content-Type: application/json
+x-api-key: dashtbrndfiorkddnskjfirirkfkfdkfk
+
+###

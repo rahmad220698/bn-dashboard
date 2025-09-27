@@ -1,0 +1,452 @@
+datasource db {
+    provider = "mysql"
+    url      = env("DATABASE_URL")
+}
+
+generator client {
+    provider = "prisma-client-js"
+}
+
+enum Level {
+    DEVELOPER
+    ADMIN
+    VERIFIKATOR
+    OPERATOR
+}
+
+enum LockStatus {
+    AKTIF
+    NONAKTIF
+}
+
+model admin {
+    id         Int        @id @default(autoincrement())
+    nipid      String?
+    nmpengguna String
+    username   String     @unique
+    password   String
+    kdopd      String?
+    nmopd      String?
+    level      Level      @default(OPERATOR)
+    datecreate DateTime   @default(now())
+    lockuser   LockStatus @default(AKTIF)
+}
+
+// ---------- Enums ----------
+
+model user {
+    id        Int      @id @default(autoincrement())
+    username  String   @unique
+    password  String
+    nama      String
+    email     String   @unique
+    createdAt DateTime @default(now())
+    level     Int      @default(0)
+    idgroup   Int?     @default(0)
+}
+
+model infrastruktur {
+    id          Int      @id @default(autoincrement())
+    kodesasaran Int
+    indikator   String
+    tahun       Int
+    target      Float
+    realisasi   Float
+    createdAt   DateTime @default(now())
+}
+
+model tblsasaran {
+    id          Int            @id @default(autoincrement())
+    kodesasaran String         @unique @db.Char(4)
+    namasasaran String
+    keterangan  String         @db.VarChar(500)
+    indikator   tblindikator[]
+}
+
+model tblindikator {
+    id          Int        @id @default(autoincrement())
+    kodesasaran String     @db.Char(4)
+    kdiku       String     @unique @db.Char(4)
+    nmiku       String?    @db.VarChar(500)
+    keterangan  String     @db.VarChar(500)
+    sasaran     tblsasaran @relation(fields: [kodesasaran], references: [kodesasaran])
+
+    @@index([kodesasaran], map: "tblindikator_kodesasaran_fkey")
+}
+
+model tbltargetindikator {
+    kdiku  String   @db.Char(4)
+    nmiku  String?  @db.VarChar(255)
+    tahun  Int      @db.Year
+    target Decimal? @default(0.00) @db.Decimal(10, 2)
+    satuan String   @db.VarChar(50)
+
+    @@id([kdiku, tahun])
+}
+
+model tbltargetdayasaing {
+    iddys   String   @db.Char(4)
+    nmdys   String   @db.VarChar(255)
+    kdiku   String   @db.Char(4)
+    nmiku   String?  @db.VarChar(255)
+    tahun   Int      @db.Year
+    target  Decimal? @default(0.00) @db.Decimal(10, 2)
+    capaian Decimal? @default(0.00) @db.Decimal(10, 2)
+
+    @@id([kdiku, tahun])
+}
+
+model tblrealikhk {
+    iddys   String   @db.Char(4)
+    nmdys   String   @db.VarChar(255)
+    kdiku   String   @db.Char(4)
+    nmiku   String?  @db.VarChar(255)
+    tahun   Int      @db.Year
+    capaian Decimal? @default(0.00) @db.Decimal(10, 2)
+
+    @@id([kdiku, tahun])
+}
+
+model tblkualitassdm {
+    id_data Int     @id @default(autoincrement())
+    kdiku   String  @db.Char(4)
+    tahun   Int
+    nilai   Decimal @db.Decimal(10, 2)
+
+    @@index([kdiku], map: "kdiku")
+}
+
+model tblkesma {
+    id_data Int     @id @default(autoincrement())
+    kdiku   String  @db.Char(4)
+    tahun   Int
+    nilai   Decimal @db.Decimal(10, 2)
+
+    @@index([kdiku], map: "kdiku")
+}
+
+model tbldayasaing {
+    id                  Int      @id @default(autoincrement())
+    kodesasaran         Int
+    indikator           String
+    tahun               Int
+    pertekonomi         Float
+    pdrbperkapita       Float
+    kontribusikabupaten Float
+    createdAt           DateTime @default(now())
+}
+
+model tblakip {
+    id          Int      @id @default(autoincrement())
+    kodesasaran Int
+    indikator   String
+    tahun       Int
+    reformasi   String   @db.VarChar(0)
+    spi         Float
+    sakip       Float
+    createdAt   DateTime @default(now())
+}
+
+model tblinfrastruktur {
+    id          Int      @id @default(autoincrement())
+    kodesasaran Int
+    indikator   String
+    tahun       Int
+    target      Float
+    realisasi   Float
+    createdAt   DateTime @default(now())
+}
+
+model tblperkapita {
+    id                  Int    @id @default(autoincrement())
+    kodesasaran         Int
+    indikator           String
+    tahun               Int
+    pertekonomi         Float
+    pdrbperkapita       Float
+    kontribusikabupaten Float
+}
+
+model tblrtlh {
+    id          Int      @id @default(autoincrement())
+    indikator   String
+    kdkecamatan String   @db.VarChar(10)
+    tahun       Int
+    jumlahkk    Float
+    rtlh        Float
+    persentase  DateTime @default(now())
+}
+
+model tblkemas {
+    id_data Int     @id @default(autoincrement())
+    kdiku   String  @db.Char(4)
+    tahun   Int
+    nilai   Decimal @db.Decimal(10, 2)
+}
+
+model refdesa {
+    id     Int    @id @default(autoincrement())
+    kddesa Int
+    nmdesa String
+}
+
+model refkecamatan {
+    id          Int    @id @default(autoincrement())
+    kddesa      Int
+    kdkecamatan Int    @unique
+    nmkecamatan String
+}
+
+model refopd {
+    id    Int    @id @default(autoincrement())
+    kdopd Int
+    nmopd String
+}
+
+model tblruasjalan {
+    noruas        Int     @id @default(autoincrement())
+    namaruasjalan String  @db.VarChar(255)
+    kdkecamatan   String  @db.VarChar(10)
+    nmkecamatan   String? @db.VarChar(100) // NEW
+
+    hotmix           Decimal?          @default(0.00) @db.Decimal(10, 2)
+    lapenmakadam     Decimal?          @default(0.00) @db.Decimal(10, 2)
+    lebarruas        Decimal?          @default(0.00) @db.Decimal(10, 2)
+    panjangruas      Decimal?          @default(0.00) @db.Decimal(10, 2)
+    perkerasanbeton  Decimal?          @default(0.00) @db.Decimal(10, 2)
+    tanahbelumtembus Decimal?          @default(0.00) @db.Decimal(10, 2)
+    telfordkerikil   Decimal?          @default(0.00) @db.Decimal(10, 2)
+    // 🔗 relasi ke tbljalankondisi
+    kondisi          tbljalankondisi[]
+}
+
+model tbljalankondisi {
+    id            BigInt  @id @default(autoincrement()) @db.UnsignedBigInt
+    noruas        Int
+    namaruasjalan String? @db.VarChar(255) // NEW
+    kdkecamatan   String  @db.VarChar(10)
+    nmkecamatan   String? @db.VarChar(100) // NEW
+    tahun         Int     @db.Year // NEW
+
+    kondisibaik        Decimal? @default(0.00) @db.Decimal(10, 2)
+    kondisisedang      Decimal? @default(0.00) @db.Decimal(10, 2)
+    kondisirusakringan Decimal? @default(0.00) @db.Decimal(10, 2)
+    kondisirusakberat  Decimal? @default(0.00) @db.Decimal(10, 2)
+    lhr                Int?     @default(0)
+    akses              String?  @db.VarChar(255)
+
+    // NEW (posisi setelah `akses`)
+    verif              Boolean?  @default(false) // TINYINT(1)
+    datecreate         DateTime? @default(now())
+    username           String?   @db.VarChar(100)
+    aksi               String?   @db.VarChar(50)
+    tblruasjalanNoruas Int?
+
+    // 🔗 relasi ke tblruasjalan
+    tblruasjalan tblruasjalan @relation(fields: [noruas], references: [noruas])
+
+    @@unique([noruas, tahun]) // opsional: cegah duplikat kombinasi noruas+tahun
+    @@index([kdkecamatan, tahun])
+    @@index([tahun])
+}
+
+model refirigasi {
+    kdirigasi   Int    @id @default(autoincrement())
+    msirigasi   String @db.VarChar(255)
+    kdkecamatan String @db.VarChar(10)
+}
+
+model tblirigasi {
+    id                    BigInt    @id @default(autoincrement()) @db.UnsignedBigInt
+    kdirigasi             Int
+    nmirigasi             String?   @db.VarChar(191) // <— pastikan ada
+    kdkecamatan           String    @db.VarChar(10)
+    nmkecamatan           String?   @db.VarChar(191) // <— pastikan ada
+    luas                  Decimal?  @default(0.00) @db.Decimal(10, 2)
+    tahun                 Int       @db.Year
+    konirigasibaik        Decimal?  @default(0.00) @db.Decimal(10, 2)
+    konirigasisedang      Decimal?  @default(0.00) @db.Decimal(10, 2)
+    konirigasirusakringan Decimal?  @default(0.00) @db.Decimal(10, 2)
+    konirigasirusakberat  Decimal?  @default(0.00) @db.Decimal(10, 2)
+    verif                 Boolean?  @default(false)
+    datecreate            DateTime? @default(now()) @db.Timestamp(0)
+    // --- tambahan audit ---
+    username              String?   @db.VarChar(191) // siapa yg melakukan aksi
+    aksi                  String    @db.VarChar(20) // CREATE, UPDATE, DELETE
+
+    // ----------------------
+    @@unique([kdirigasi, tahun])
+    @@map("tblirigasi")
+}
+
+model tblrtlhkec {
+    idrtlh        Int     @id @default(autoincrement())
+    kdkecamatan   Int
+    nmkecamatan   String? @db.VarChar(255) // varchar dibuat nullable (opsional) dengan ?
+    kdiku         String  @db.Char(255) // Anda bisa tentukan panjang char, misal @db.Char(10)
+    nmiku         String? @db.VarChar(255)
+    tahun         Int     @db.Year
+    jlrlh         Decimal @db.Decimal(10, 2)
+    jlrtlh        Decimal @db.Decimal(10, 2)
+    jltotalrt     Decimal @db.Decimal(10, 2)
+    presentasitlh Decimal @db.Decimal(10, 2) // Sesuaikan presisi (total digit, digit desimal)
+    presentasilh  Decimal @db.Decimal(10, 2)
+}
+
+// ------------------------------Table Infrastruktur Jembatan------------------------------//
+
+// ---------- Enums ----------
+enum Kondisi {
+    BAIK
+    SEDANG
+    RUSAK_RINGAN
+    RUSAK_BERAT
+    PUTUS
+}
+
+// ---------- Models (Tables) ----------
+model refdaerah {
+    daerah_id   BigInt @id @default(autoincrement()) @db.UnsignedBigInt
+    kode_daerah String @unique(map: "uk_kode_daerah") @db.VarChar(16)
+    nama_daerah String @db.VarChar(100)
+
+    // Relasi
+    jembatan tbljembatan[]
+
+    @@map("daerah")
+}
+
+model refjembatan {
+    kdjembatan  Int    @id @default(0) // kode jembatan; ubah/hapus default jika tidak ingin 0
+    nmjembatan  String @db.VarChar(255)
+    kdkecamatan String @db.VarChar(10)
+
+    @@index([kdkecamatan], name: "idx_jembatan_kdkecamatan")
+    @@map("refjembatan") // opsional: nama tabel DB
+}
+
+model tbljembatan {
+    id                 BigInt     @id @default(autoincrement()) @db.UnsignedBigInt
+    kdkecamatan        BigInt     @db.UnsignedBigInt
+    nmkecamatan        String?    @db.VarChar(191)
+    jembatan_id        BigInt     @db.UnsignedBigInt
+    nama_jembatan      String     @db.VarChar(150)
+    panjang_m          Decimal?   @db.Decimal(8, 2)
+    tahun_bangun       Int?       @db.Year
+    kondisi            Kondisi
+    aktif              Boolean    @default(true)
+    created_at         DateTime   @default(now())
+    updated_at         DateTime   @updatedAt
+    tahun              Int        @db.Year
+    refdaerah          refdaerah? @relation(fields: [refdaerahDaerah_id], references: [daerah_id])
+    refdaerahDaerah_id BigInt?    @db.UnsignedBigInt
+
+    // === Kolom audit yang kamu minta ===
+    username   String?   @db.VarChar(100) // siapa yang mengubah/membuat
+    aksi       String?   @db.VarChar(20) // CREATE, UPDATE, DELETE
+    datecreate DateTime? @default(now()) // waktu aksi (boleh override manual)
+
+    // Index (opsional, tapi umum dipakai untuk query)
+    @@unique([jembatan_id, tahun], map: "uniq_jembatan_tahun")
+    @@index([kdkecamatan], map: "idx_kdkecamatan")
+    @@index([kondisi], map: "idx_kondisi")
+    @@index([aktif], map: "idx_aktif")
+    @@index([datecreate], map: "idx_datecreate") // optional: cepat cari by waktu audit
+    // Nama tabel fisik di MySQL
+    @@map("tbljembatan")
+}
+
+model VPersentaseJembatanBaik {
+    daerah_id       BigInt   @id @db.UnsignedBigInt
+    kode_daerah     String   @db.VarChar(16)
+    nama_daerah     String   @db.VarChar(100)
+    total_jembatan  BigInt   @db.UnsignedBigInt
+    jembatan_baik   BigInt   @db.UnsignedBigInt
+    persentase_baik Decimal? @db.Decimal(5, 2)
+
+    @@map("v_persentase_jembatan_baik")
+}
+
+model tblikucakupantelekomunikasi {
+    id               Int      @id @default(autoincrement())
+    kdtelekomunikasi String   @db.VarChar(10)
+    totaldesa        Decimal  @db.Decimal(10, 2)
+    desaterlayani    Decimal  @db.Decimal(10, 2)
+    tahun            Int      @db.Year
+    username         String   @db.VarChar(100)
+    aksi             String   @db.VarChar(50)
+    datecreate       DateTime @default(now())
+
+    @@unique([kdtelekomunikasi, tahun])
+    @@map("tblikucakupantelekomunikasi")
+}
+
+// ------------------------------End Table Infrastruktur Jembatan------------------------------//
+
+// ------------------------------Infrastruktur air minum------------------------------//
+model tblaksesairminum {
+    id                 Int     @id @default(autoincrement())
+    kdkecamatan        String  @db.VarChar(10)
+    nmkecamatan        String  @db.VarChar(191)
+    jmlpenduduk        Int
+    jmlairminumlayak   Int
+    persentaseairminum Decimal @db.Decimal(5, 2)
+    tahun              Int     @db.Year
+
+    @@unique([kdkecamatan, tahun], name: "idx_unik_kecamatan_tahun")
+    @@map("tblaksesairminum")
+}
+
+// ------------------------------End Infrastruktur air minum------------------------------//
+// ------------------------------Ref Penduduk------------------------------//
+
+model RefPenduduk {
+    id            Int      @id @default(autoincrement())
+    tahun         Int      @map("tahun")
+    kdkecamatan   Int      @map("kdkecamatan")
+    nmkecamatan   String   @map("nmkecamatan") @db.VarChar(255)
+    lakiLaki      Int      @map("lakilaki")
+    perempuan     Int      @map("perempuan")
+    total         Int      @map("total")
+    jumlahkk      Int      @map("jumlahkk")
+    pop04tahun    Int
+    pop59tahun    Int
+    pop1014tahun  Int
+    pop1519tahun  Int
+
+    @@unique([kdkecamatan, tahun])
+    @@map("refpenduduk")
+}
+// ------------------------------End Ref Penduduk------------------------------//
+
+
+// ------------------------------Rasio ketersediaan daya listrik  ------------------------------//
+
+model tbldayalistrik {
+    id             Int      @id @default(autoincrement())
+    nmkecamatan    String   @map("nmkecamatan") @db.VarChar(255)
+    tahun          Int      @db.Year
+    dayatersedia   Decimal  @map("dayatersedia") @db.Decimal(10, 2)
+    dayadibutuhkan Decimal  @map("dayadibutuhkan") @db.Decimal(10, 2)
+    rasiopersen    Decimal? @map("rasiopersen") @db.Decimal(5, 2)
+
+    @@map("tbldayalistrik")
+}
+
+// ------------------------------End Rasio ketersediaan daya listrik  ------------------------------//
+
+// ------------------------------   ------------------------------//
+model tblkematian {
+    id               Int      @id @default(autoincrement()) // ID primary key
+    idkecamatan      Int // ID kecamatan
+    nmkecamatan      String // Nama kecamatan
+    jumkem0_4Tahun   Int // Jumlah kematian 0-4 Tahun
+    jumkem5_9Tahun   Int // Jumlah kematian 5-9 Tahun
+    jumkem10_14Tahun Int // Jumlah kematian 10-14 Tahun
+    jumkem15_19Tahun Int // Jumlah kematian 15-19 Tahun
+    tahun            Int // Tahun
+    verif            Boolean  @default(false) // Verifikasi (tinyint 1 = true, 0 = false)
+    datecreate       DateTime @default(now()) // Timestamp untuk waktu pembuatan
+    username         String // Nama pengguna yang melakukan aksi
+    aksi             String // Jenis aksi yang dilakukan (insert, update, delete)
+}

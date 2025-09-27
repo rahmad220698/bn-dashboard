@@ -1,0 +1,39 @@
+### Baca Data Pos Anggaran
+GET http://localhost:3001/api/ref-jembatan
+content-type: application/json
+x-api-key: dashtbrndfiorkddnskjfirirkfkfdkfk
+
+### Baca Data
+GET http://localhost:3001/api/ref-jembatan
+content-type: application/json
+x-api-key: dashtbrndfiorkddnskjfirirkfkfdkfk
+
+### Buat Data 
+POST http://localhost:3001/api/ref-jembatan
+Content-Type: application/json
+x-api-key: dashtbrndfiorkddnskjfirirkfkfdkfk
+
+{
+    "kdjembatan": 111,
+    "nmjembatan": "Jembatan Aek Sabaon",
+    "kdkecamatan": "1"
+}
+
+
+### Baca Data
+GET http://localhost:3001/api/ref-jembatan/111
+Content-Type: application/json
+x-api-key: dashtbrndfiorkddnskjfirirkfkfdkfk
+
+### Update Data
+PUT http://localhost:3001/api/ref-jembatan/111
+x-api-key: dashtbrndfiorkddnskjfirirkfkfdkfk
+
+{
+  "kdjembatan": 111,
+  "nmjembatan": "Jembatan Aek di sabajeion",
+  "kdkecamatan": "1"
+}
+### Hapus Data
+DELETE http://localhost:3001/api/ref-jembatan/111
+x-api-key: dashtbrndfiorkddnskjfirirkfkfdkfk

@@ -1,0 +1,52 @@
+### Baca Data
+GET http://localhost:3001/api/infrastuktur/3jembatan
+content-type: application/json
+x-api-key: dashtbrndfiorkddnskjfirirkfkfdkfk
+
+### Buat Data 
+POST http://localhost:3001/api/infrastuktur/3jembatan
+Content-Type: application/json
+x-api-key: dashtbrndfiorkddnskjfirirkfkfdkfk
+
+{
+  "id": "152",
+    "kdkecamatan": "1",
+    "nmkecamatan": "AEK BILAH",
+    "jembatan_id": "1111",
+    "nama_jembatan": "Jembatan Aek Sabaon 1",
+    "panjang_m": "117.98",
+    "tahun_bangun": 1991,
+    "kondisi": "RUSAK_RINGAN",
+    "aktif": true,
+    "created_at": "2025-09-20T08:59:00.000Z",
+    "updated_at": "2025-09-20T08:59:00.000Z",
+    "tahun": 2029
+}
+
+
+### Baca Data
+GET http://localhost:3001/api/infrastuktur/3jembatan/16/2026
+Content-Type: application/json
+x-api-key: dashtbrndfiorkddnskjfirirkfkfdkfk
+
+### Update Data
+PUT http://localhost:3001/api/infrastuktur/3jembatan/16/2026
+x-api-key: dashtbrndfiorkddnskjfirirkfkfdkfk
+
+{
+  "id": "181",
+  "kdkecamatan": "1",
+  "nmkecamatan": "AEK BILAH",
+  "jembatan_id": "16",
+  "nama_jembatan": "Jembatan Simanosor 16",
+  "panjang_m": "2222.98",
+  "tahun_bangun": 1995,
+  "kondisi": "RUSAK_BERAT",
+  "aktif": true,
+  "created_at": "2025-09-22T08:09:53.000Z",
+  "updated_at": "2025-09-22T08:09:53.000Z",
+  "tahun": 2026
+}
+### Hapus Data
+DELETE http://localhost:3001/api/infrastuktur/3jembatan/25/2026
+x-api-key: dashtbrndfiorkddnskjfirirkfkfdkfk

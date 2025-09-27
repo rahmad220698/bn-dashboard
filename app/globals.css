@@ -1,0 +1,24 @@
+:root { color-scheme: light dark; }
+* { box-sizing: border-box; }
+body { padding: 2rem; }
+.container { max-width: 480px; margin: 0 auto; }
+.card {
+  border: 1px solid rgba(0,0,0,.1);
+  border-radius: 12px;
+  padding: 1rem;
+  background: rgba(255,255,255,.7);
+  backdrop-filter: blur(6px);
+}
+label { display:block; margin:.5rem 0 .25rem; }
+input { width:100%; padding:.6rem; border-radius:8px; border:1px solid #ccc; }
+button { padding:.6rem 1rem; border-radius:10px; border:none; cursor:pointer; }
+.row { display:flex; gap:.5rem; align-items:center; }
+.mt-2 { margin-top:.5rem; }
+.mt-3 { margin-top:1rem; }
+.mt-4 { margin-top:1.5rem; }
+.small { font-size:.9rem; color:#555; }
+nav { display:flex; gap:1rem; margin-bottom:1.5rem; }
+a { color:inherit; }
+.success { color: #1a7f37; }
+.error { color: #b42318; }
+pre { white-space: pre-wrap; }

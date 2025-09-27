@@ -1,0 +1,48 @@
+### Baca Data
+GET http://localhost:3001/api/keseheatanmasyarakat/1usiaharapanhidup
+content-type: application/json
+x-api-key: dashtbrndfiorkddnskjfirirkfkfdkfk
+
+### Buat Data 
+POST http://localhost:3001/api/keseheatanmasyarakat/1usiaharapanhidup
+Content-Type: application/json
+x-api-key: dashtbrndfiorkddnskjfirirkfkfdkfk
+
+{
+    "id": 1,
+    "tahun": 2025,
+    "idkecamatan": 1,
+    "nmkecamatan": "Angkola Barat",
+    "jumkem0_4Tahun": 50,
+    "jumkem5_9Tahun": 30,
+    "jumkem10_14Tahun": 25,
+    "jumkem15_19Tahun": 20,
+    "verif": 0,
+    "datecreate": "2025-09-26T03:23:20.000Z",
+    "username": "admin",
+    "aksi": "INSERT"
+}
+
+
+### Baca Data
+GET http://localhost:3001/api/infrastuktur/7telekomunikasi/1/2026
+Content-Type: application/json
+x-api-key: dashtbrndfiorkddnskjfirirkfkfdkfk
+
+### Update Data
+PUT http://localhost:3001/api/infrastuktur/7telekomunikasi/1/2026
+x-api-key: dashtbrndfiorkddnskjfirirkfkfdkfk
+
+{
+  "id": 2,
+  "totaldesa": 212,
+  "desaterlayani": 123,
+  "tahun": 2026,
+  "username": "admin",
+  "aksi": "INSERT",
+  "datecreate": "2025-09-23T07:24:55.000Z"
+}
+
+### Hapus Data
+DELETE http://localhost:3001/api/infrastuktur/7telekomunikasi/1/2026
+x-api-key: dashtbrndfiorkddnskjfirirkfkfdkfk

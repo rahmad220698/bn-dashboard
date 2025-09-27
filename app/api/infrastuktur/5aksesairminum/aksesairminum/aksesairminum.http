@@ -1,0 +1,47 @@
+### Baca Semua Data Akses Air Minum
+GET http://localhost:3001/api/infrastuktur/5aksesairminum
+Content-Type: application/json
+x-api-key: dashtbrndfiorkddnskjfirirkfkfdkfk
+
+### Baca Data Akses Air Minum Berdasarkan ID
+GET http://localhost:3001/api/infrastuktur/5aksesairminum?id=1
+Content-Type: application/json
+x-api-key: dashtbrndfiorkddnskjfirirkfkfdkfk
+
+### Buat Data Baru Akses Air Minum
+POST http://localhost:3001/api/infrastuktur/5aksesairminum
+Content-Type: application/json
+x-api-key: dashtbrndfiorkddnskjfirirkfkfdkfk
+
+{
+  "kdkecamatan": "24",
+  "nmkecamatan": "SAIPAR DOLOK HOLE",
+  "jmlpenduduk": 12002,
+  "jmlairminumlayak": 10000,
+  "persentaseairminum": "83.33",
+  "tahun": 2025
+}
+
+### Baca Data Spesifik Berdasarkan ID (Route Dynamic)
+GET http://localhost:3001/api/infrastuktur/5aksesairminum/1
+Content-Type: application/json
+x-api-key: dashtbrndfiorkddnskjfirirkfkfdkfk
+
+### Update Data Akses Air Minum Berdasarkan ID
+PUT http://localhost:3001/api/infrastuktur/5aksesairminum/1
+Content-Type: application/json
+x-api-key: dashtbrndfiorkddnskjfirirkfkfdkfk
+
+{
+  "kdkecamatan": "2",
+  "nmkecamatan": "marancar",
+  "jmlpenduduk": 12001,
+  "jmlairminumlayak": 10000,
+  "persentaseairminum": "83.33",
+  "tahun": 2029
+}
+
+### Hapus Data Akses Air Minum Berdasarkan ID
+DELETE http://localhost:3001/api/infrastuktur/5aksesairminum/1
+Content-Type: application/json
+x-api-key: dashtbrndfiorkddnskjfirirkfkfdkfk

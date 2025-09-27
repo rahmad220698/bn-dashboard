@@ -1,0 +1,34 @@
+### Baca Data Pos Anggaran
+GET http://localhost:3001/api/indexdayasaing
+
+### Baca Data
+GET http://localhost:3001/api/indexdayasaing?search=2025
+
+
+### Tambah Data
+POST http://localhost:3000/api/indexdayasaing
+Content-Type: application/json
+x-api-key: dashboarduser
+
+{
+   "iddys": "1",
+    "nmdys": "Institusi",
+    "kdiku": "1011",
+    "nmiku": "Daya Saing Daerah",
+    "tahun": 2025,
+    "target": "4.59",
+    "capaian": "0"
+}
+
+
+### Update Data Pos Anggaran
+PUT http://localhost:3001/api/indexdayasaing
+Content-Type: application/json
+
+{
+    "kdiku": "1011",
+    "tahun": "2025",
+    "target": "4.59",
+    "capaian": "0"
+}
+

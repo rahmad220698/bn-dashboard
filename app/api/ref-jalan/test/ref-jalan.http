@@ -1,0 +1,56 @@
+### Baca Data Pos Anggaran
+GET http://localhost:3001/api/ref-jalan
+content-type: application/json
+x-api-key: dashtbrndfiorkddnskjfirirkfkfdkfk
+
+### Baca Data Pos Anggaran
+GET http://localhost:3001/api/ref-jalan
+content-type: application/json
+x-api-key: dashtbrndfiorkddnskjfirirkfkfdkfk
+
+
+### Buat Data 
+POST http://localhost:3001/api/ref-jalan
+Content-Type: application/json
+x-api-key: dashtbrndfiorkddnskjfirirkfkfdkfk
+
+{
+    "noruas": 155,
+    "namaruasjalan": "JL. KELILING BINTUJU",
+    "kdkecamatan": "1",
+    "nmkecamatan": "tESTTING",
+    "hotmix": "1.6",
+    "lapenmakadam": "0",
+    "lebarruas": "4.3",
+    "panjangruas": "2",
+    "perkerasanbeton": "0.4",
+    "tanahbelumtembus": "0",
+    "telfordkerikil": "0"
+}
+
+
+### Baca Data
+GET http://localhost:3001/api/ref-jalan/1391
+Content-Type: application/json
+x-api-key: dashtbrndfiorkddnskjfirirkfkfdkfk
+
+### Update Data
+PUT http://localhost:3001/api/ref-jalan/1391
+x-api-key: dashtbrndfiorkddnskjfirirkfkfdkfk
+
+{
+  "noruas": 1391,
+  "namaruasjalan": "JL. KELILING BINTUJU",
+  "kdkecamatan": "3",
+  "nmkecamatan": "Coba Update",
+  "hotmix": "1.6",
+  "lapenmakadam": "0",
+  "lebarruas": "4.3",
+  "panjangruas": "2",
+  "perkerasanbeton": "0.4",
+  "tanahbelumtembus": "0",
+  "telfordkerikil": "0"
+}
+### Hapus Data
+DELETE http://localhost:3001/api/ref-jalan/1391
+x-api-key: dashtbrndfiorkddnskjfirirkfkfdkfk

@@ -1,0 +1,43 @@
+### Baca Data
+GET http://localhost:3001/api/infrastuktur/7telekomunikasi
+content-type: application/json
+x-api-key: dashtbrndfiorkddnskjfirirkfkfdkfk
+
+### Buat Data 
+POST http://localhost:3001/api/infrastuktur/7telekomunikasi
+Content-Type: application/json
+x-api-key: dashtbrndfiorkddnskjfirirkfkfdkfk
+
+{
+    "id": 6,
+    "tahun": 2026,
+    "total_desa": 2121,
+    "desa_terlayani": 2122,
+    "username": "admin",
+    "aksi": "INSERT",
+    "datecreate": "2029-01-01T00:00:00.000Z"
+}
+
+
+### Baca Data
+GET http://localhost:3001/api/infrastuktur/7telekomunikasi/1/2026
+Content-Type: application/json
+x-api-key: dashtbrndfiorkddnskjfirirkfkfdkfk
+
+### Update Data
+PUT http://localhost:3001/api/infrastuktur/7telekomunikasi/1/2026
+x-api-key: dashtbrndfiorkddnskjfirirkfkfdkfk
+
+{
+  "id": 2,
+  "totaldesa": 212,
+  "desaterlayani": 123,
+  "tahun": 2026,
+  "username": "admin",
+  "aksi": "INSERT",
+  "datecreate": "2025-09-23T07:24:55.000Z"
+}
+
+### Hapus Data
+DELETE http://localhost:3001/api/infrastuktur/7telekomunikasi/1/2026
+x-api-key: dashtbrndfiorkddnskjfirirkfkfdkfk

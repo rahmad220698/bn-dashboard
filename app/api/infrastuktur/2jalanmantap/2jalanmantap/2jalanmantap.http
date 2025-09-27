@@ -1,0 +1,59 @@
+### Baca Data Pos Anggaran
+GET http://localhost:3001/api/infrastuktur/2jalanmantap
+content-type: application/json
+x-api-key: dashtbrndfiorkddnskjfirirkfkfdkfk
+
+### Buat Data 
+POST http://localhost:3001/api/infrastuktur/2jalanmantap
+Content-Type: application/json
+x-api-key: dashtbrndfiorkddnskjfirirkfkfdkfk
+
+{
+  "id": "13333",
+  "noruas": 16666,
+  "namaruasjalan": "PANOMPUAN TONGA - PANOMPUAN JAE",
+  "kdkecamatan": "7",
+  "nmkecamatan": "BATANG TORU",
+  "tahun": 2025,
+  "kondisibaik": "1.8",
+  "kondisisedang": "0",
+  "kondisirusakringan": "0",
+  "kondisirusakberat": "4.2",
+  "akses": "N",
+  "verif": false,
+  "datecreate": "2025-09-26T03:23:20.000Z",
+  "username": null,
+  "aksi": "CREATE"
+}
+
+
+### Baca Data
+GET http://localhost:3001/api/infrastuktur/2jalanmantap/1399/2025
+Content-Type: application/json
+x-api-key: dashtbrndfiorkddnskjfirirkfkfdkfk
+
+### Update Data
+PUT http://localhost:3001/api/infrastuktur/2jalanmantap/1389/2026
+x-api-key: dashtbrndfiorkddnskjfirirkfkfdkfk
+
+{
+  "noruas": 1389,
+  "namaruasjalan": "PANOMPUAN TONGA - PANOMPUAN JAE",
+  "tahun": 2026,
+  "kdkecamatan": "7",
+  "nmkecamatan": "BATANG TORU",
+  "kondisibaik": "1.8",
+  "kondisisedang": "0",
+  "kondisirusakringan": "0",
+  "kondisirusakberat": "4.2",
+  "lhr": 0,
+  "akses": "N",
+  "verif": false,
+  "username": null,
+  "aksi": "CREATE",
+  "datecreate": "2025-09-18T04:58:37.000Z"
+}
+### Hapus Data
+DELETE http://localhost:3001/api/infrastuktur/2jalanmantap/1399/2025
+content-type: application/json
+x-api-key: dashtbrndfiorkddnskjfirirkfkfdkfk

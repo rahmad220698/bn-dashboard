@@ -1,0 +1,51 @@
+### GET login
+GET http://localhost:3001/api/login
+content-type: application/json
+x-api-key: dashtbrndfiorkddnskjfirirkfkfdkfk
+
+### GET login
+GET http://localhost:3001/api/login
+content-type: application/json
+x-api-key: dashtbrndfiorkddnskjfirirkfkfdkfk
+
+### Create login
+POST http://localhost:3001/api/login
+Content-Type: application/json
+x-api-key: dashtbrndfiorkddnskjfirirkfkfdkfk
+
+{
+    "nipid": "11111111",
+    "nmpengguna": "Sendy Broer",
+    "password": "123456",
+    "username": "develop",
+    "kdopd": "0000001",
+    "nmopd": "SEKERETARIAT DAERAH",
+    "level": "DEVELOPER",
+    "datecreate": "2025-09-17T09:41:12.000Z",
+    "lockuser": 1
+}
+
+### Update Data
+PUT http://localhost:3001/api/login/53
+x-api-key: dashtbrndfiorkddnskjfirirkfkfdkfk
+
+{
+    "id": 53,
+    "nipid": "197110112011011001",
+    "nmpengguna": "Dr. ERWIN SYAH LUBIS, MT",
+    "username": "197110112011011001",
+    "kdopd": "26",
+    "nmopd": "Badan Perencanaan Pembangunan Daerah",
+    "level": "ADMIN",
+    "datecreate": "2025-09-25T03:37:32.000Z",
+    "lockuser": "NONAKTIF"
+}
+
+### GET login
+GET http://localhost:3001/api/login/56
+content-type: application/json
+x-api-key: dashtbrndfiorkddnskjfirirkfkfdkfk
+
+### Hapus Data
+DELETE http://localhost:3001/api/login/55
+x-api-key: dashtbrndfiorkddnskjfirirkfkfdkfk
