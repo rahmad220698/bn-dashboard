@@ -450,3 +450,17 @@ model tblkematian {
     username         String // Nama pengguna yang melakukan aksi
     aksi             String // Jenis aksi yang dilakukan (insert, update, delete)
 }
+// ------------------------------Stunting ------------------------------//
+model tblPrevalensiStunting {
+  id             Int    @id @default(autoincrement())
+  kdkecamatan    Int    @map("kdkecamatan")
+  nmkecamatan    String @map("nmkecamatan") @db.VarChar(255)
+  tahun          Int    @db.Year
+  jumlahBalita   Int
+  balitaStunting Int
+  persentase     Float  @default(0)
+
+  @@unique([kdkecamatan, tahun], name: "idx_unik_kecamatan_tahun")
+  @@map("tblPrevalensiStunting")
+}
+// ------------------------------End  Stunting------------------------------//

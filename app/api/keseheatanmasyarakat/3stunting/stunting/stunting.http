@@ -1,0 +1,51 @@
+### Baca Semua Data Stunting
+GET http://localhost:3001/api/keseheatanmasyarakat/3stunting
+Content-Type: application/json
+x-api-key: dashtbrndfiorkddnskjfirirkfkfdkfk
+
+###
+
+### Buat Data Stunting Baru
+POST http://localhost:3001/api/keseheatanmasyarakat/3stunting
+Content-Type: application/json
+x-api-key: dashtbrndfiorkddnskjfirirkfkfdkfk
+
+{
+  "kdkecamatan": 1,
+  "nmkecamatan": "f ",
+  "tahun": 2024,
+  "jumlahBalita": 50000,
+  "balitaStunting": 900,
+  "persentase": 18
+}
+###
+
+### Baca Data Stunting Berdasarkan ID
+GET http://localhost:3001/api/keseheatanmasyarakat/3stunting/1
+Content-Type: application/json
+x-api-key: dashtbrndfiorkddnskjfirirkfkfdkfk
+
+###
+
+### Update Data Stunting
+PUT http://localhost:3001/api/keseheatanmasyarakat/3stunting/1
+Content-Type: application/json
+x-api-key: dashtbrndfiorkddnskjfirirkfkfdkfk
+
+{
+  "kdkecamatan": 4,
+  "nmkecamatan": "Batang ",
+  "tahun": 2025,
+  "jumlahBalita": 5000,
+  "balitaStunting": 900,
+  "persentase": 18
+}
+
+###
+
+### Hapus Data Stunting
+DELETE http://localhost:3001/api/keseheatanmasyarakat/3stunting/1
+Content-Type: application/json
+x-api-key: dashtbrndfiorkddnskjfirirkfkfdkfk
+
+###
