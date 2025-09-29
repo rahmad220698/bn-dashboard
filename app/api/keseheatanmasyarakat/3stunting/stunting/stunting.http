@@ -11,9 +11,9 @@ Content-Type: application/json
 x-api-key: dashtbrndfiorkddnskjfirirkfkfdkfk
 
 {
-    "kdkecamatan": 2,
+    "kdkecamatan": ,
     "nmkecamatan": "Angkola Selatan",
-    "tahun": 2023,
+    "tahun": 2029,
     "jumlahBalita": 3800,
     "balitaStunting": 760,
     "persentase": 20
@@ -21,14 +21,14 @@ x-api-key: dashtbrndfiorkddnskjfirirkfkfdkfk
 ###
 
 ### Baca Data Stunting Berdasarkan ID
-GET http://localhost:3001/api/keseheatanmasyarakat/3stunting/1
+GET http://localhost:3001/api/keseheatanmasyarakat/3stunting/8
 Content-Type: application/json
 x-api-key: dashtbrndfiorkddnskjfirirkfkfdkfk
 
 ###
 
 ### Update Data Stunting
-PUT http://localhost:3001/api/keseheatanmasyarakat/3stunting/1
+PUT http://localhost:3001/api/keseheatanmasyarakat/3stunting/2
 Content-Type: application/json
 x-api-key: dashtbrndfiorkddnskjfirirkfkfdkfk
 
@@ -36,7 +36,7 @@ x-api-key: dashtbrndfiorkddnskjfirirkfkfdkfk
     "kdkecamatan": 2,
     "nmkecamatan": "Angkola Selatan",
     "tahun": 2023,
-    "jumlahBalita": 3800,
+    "jumlahBalita": 3888,
     "balitaStunting": 760,
     "persentase": 20
 }
