@@ -11,12 +11,12 @@ Content-Type: application/json
 x-api-key: dashtbrndfiorkddnskjfirirkfkfdkfk
 
 {
-  "kdkecamatan": 1,
-  "nmkecamatan": "f ",
-  "tahun": 2024,
-  "jumlahBalita": 50000,
-  "balitaStunting": 900,
-  "persentase": 18
+    "kdkecamatan": 2,
+    "nmkecamatan": "Angkola Selatan",
+    "tahun": 2023,
+    "jumlahBalita": 3800,
+    "balitaStunting": 760,
+    "persentase": 20
 }
 ###
 
@@ -33,12 +33,12 @@ Content-Type: application/json
 x-api-key: dashtbrndfiorkddnskjfirirkfkfdkfk
 
 {
-  "kdkecamatan": 4,
-  "nmkecamatan": "Batang ",
-  "tahun": 2025,
-  "jumlahBalita": 5000,
-  "balitaStunting": 900,
-  "persentase": 18
+    "kdkecamatan": 2,
+    "nmkecamatan": "Angkola Selatan",
+    "tahun": 2023,
+    "jumlahBalita": 3800,
+    "balitaStunting": 760,
+    "persentase": 20
 }
 
 ###
